@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>!window.jQuery && document.write('<script src="jquery.js"></script>');</script>
+	<script>
+	jQuery(function($) {
+		$.get('list.txt', function(result) {
+			var resultTXT = result.replace(/([a-z0-9]{4}@)/g, '****@');
+			resultTXT = resultTXT.replace(/[\r]/g, '<br>');
+			$('#result').html(resultTXT);
+		});
+	});
+	</script>
+</head>
+<body>
+<p>
+	批量为Email用户名打星星，将@之前的4个字符替换成“ * ”
+</p>
+<div id="result"></div>
+
+<!--
+	//=========== list.txt ==========//
+	526232@qq.com	昵称
+	10saf92@sina.com	昵称
+	hello154@163.com	昵称
+	106717@qq.com	昵称
+	10236@qq.com	昵称
+	158175@qq.com	昵称
+	11219@qq.com	昵称
+	114669@qq.com	昵称
+	1110035@qq.com	昵称
+	1173768812@qq.com	昵称
+	126919@99.com	昵称
+	1220407@qq.com	昵称
+-->
+</body>
+</html>
